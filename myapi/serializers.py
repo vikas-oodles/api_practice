@@ -24,12 +24,12 @@ class ProfileSerializer(serializers.HyperlinkedModelSerializer):
         request = self.context['request']
         return request.user.get_full_name()
 
-    def update(self,instance, validated_data):
-        user_data = validated_data.pop('user',None)
-        for attr, value in user_data.items():
-            setattr(instance.user, attr, value)
-        instance.user.save()
-        instance.save()
-        return instance
+    # def update(self,instance, validated_data):
+    #     user_data = validated_data.pop('user',None)
+    #     for attr, value in user_data.items():
+    #         setattr(instance.user, attr, value)
+    #     instance.user.save()
+    #     instance.save()
+    #     return instance
 
     
